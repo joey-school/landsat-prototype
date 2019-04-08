@@ -1,0 +1,175 @@
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script   src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"   integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="   crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+
+        <style>
+            td{
+                width: 150px;
+            }
+/*
+            img{
+                /*display: block;*/
+                width: 150px;
+                height: 150px;
+            }*/
+
+            #preview-image{
+                /*position: absolute;*/
+                top: 0;/*
+                right 100;*/
+                display: block;
+                float: right;
+                width: 200px;
+                height: 200px;//
+            }
+        </style>
+
+        
+                setInterval(function(){
+                    var startTime = Date.now();
+                    var image = new Image();
+                    image.onload = function(e){
+                        console.log("okk");
+                        
+                setInterval(function(){
+                    var startTime = Date.now();
+                    var image = new Image();
+                    image.onload = function(e){
+                        console.log("okk");
+                        
+                setInterval(function(){
+                    var startTime = Date.now();
+                    var image = new Image();
+                    image.onload = function(e){
+                        console.log("okk");
+                        
+        
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.js'></script>
+<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.css' rel='stylesheet' />
+<style>
+body { margin:0; padding:0; }
+#map { position:absolute; top:0; bottom:0; right: 0; width:70%; }
+</style>
+
+    </head>
+    <body>
+        
+    <div id='map'></div>
+    <script>
+    // L.mapbox.accessToken = 'pk.eyJ1IjoiYnVybnkxMjMiLCJhIjoiY2pvcmFoa3E1MGRuOTNwbXppdnJ1aWNwYyJ9.6G0TOTfXh5f0QfiSxLTgfQ';
+    // var map = L.mapbox.map('map')
+    //     .setView([40, -74.50], 9)
+    //     .addLayer(L.mapbox.styleLayer('mapbox://styles/mapbox/streets-v11'));
+let selectedDate = "2013-01-02";
+let latLng = null;
+ $(function(){
+                console.log("ready");
+
+        var start = new Date("5/10/2013");
+        var end = new Date("11/15/2013");
+
+
+        var loop = new Date(start);
+        // while(loop <= end){
+        //    var newDate = loop.setDate(loop.getDate() + 1);
+        //    loop = new Date(newDate);
+
+        //    var dateString = loop.getFullYear() + "-" + ('0' + (loop.getMonth()+1)).slice(-2) + '-' + ('0' + loop.getDate()).slice(-2);
+
+        //    console.log(dateString);
+
+        //    $.ajax({
+        //         type: "GET",
+        //         url: "https://api.nasa.gov/planetary/earth/imagery/?lon=4.300012&lat=51.916357&date=2018-05-05&cloud_score=True&api_key=omUsVtEs3YAlWmYLeEhATXj2M0EohAZ9dmLSmoyQ"
+        //         }).done(function (data) {
+        //         console.log(data);
+
+        //         $('#preview-image').attr("src", data.url);
+        //     });
+        // }
+
+        $.ajax({
+                type: "GET",
+                url: "https://api.nasa.gov/planetary/earth/imagery/?lon=4.516201699053511&lat=51.93585257228682&date=2015-10-01&dim=0.25&cloud_score=True&api_key=M7DwlbYlkoBMBjtanSUeFhbe7X7AGpK6fmWKtff3"
+                }).done(function (data) {
+                console.log(data);
+
+                $('#preview-image').attr("src", data.url);
+            });
+
+
+        $("#datepicker").datepicker({
+            altFormat: "yy-mm-dd",
+            // The format the user actually sees
+            dateFormat: "yy-mm-dd",
+            defaultDate: new Date("10/01/2015"),
+            onSelect: function (date) {
+                // Your CSS changes, just in case you still need them
+                selectedDate = date;
+                $(this).datepicker('getDate');
+                
+                if(latLng !== null) {
+                    getImage();
+                }
+                
+            }
+        });
+    });
+
+mapboxgl.accessToken = 'pk.eyJ1IjoiYnVybnkxMjMiLCJhIjoiY2pvcmFoa3E1MGRuOTNwbXppdnJ1aWNwYyJ9.6G0TOTfXh5f0QfiSxLTgfQ';
+var map = new mapboxgl.Map({
+    container: 'map', // container id
+    style: 'mapbox://styles/mapbox/streets-v9',
+    center: [4.516201699053511, 51.93585257228682], // starting position
+    zoom: 13 // starting zoom&lat=
+});
+
+
+
+
+
+
+    map.on('click', function (e) {
+        console.log(e.lngLat);
+
+        latLng = e.lngLat;
+        getImage();
+    });
+
+
+
+    function getImage() {
+        var url = "https://api.nasa.gov/planetary/earth/imagery/?lon=" + latLng.lng + "&lat=" + latLng.lat + "&date="+ selectedDate +"&cloud_score=True&api_key=M7DwlbYlkoBMBjtanSUeFhbe7X7AGpK6fmWKtff3";
+        console.log("get image: " + url);
+
+        $.ajax({
+            type: "GET",
+            url: url
+            }).done(function (data) {
+            console.log(data);
+
+            $('#preview-image').attr("src", data.url);
+        });
+    }
+
+
+
+
+
+    </script>
+
+    <img src="" id="preview-image" />
+    <div  id="datepicker"></div>
+
+
+    </body>
+</html>
+
+//
+<!-- Create a commit even if merge resolved via fast-forwardddd. -->
+
+
+
+/// dooo
